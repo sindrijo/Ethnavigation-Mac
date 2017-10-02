@@ -12,7 +12,7 @@ end
 fastKeyStroke = function(modifiers, character)
   local event = require("hs.eventtap").event
   event.newKeyEvent(modifiers, string.lower(character), true):post()
-  hs.timer.usleep(100)
+  hs.timer.usleep(40)
   event.newKeyEvent(modifiers, string.lower(character), false):post()
 end
 
@@ -29,16 +29,16 @@ kana:bind('alt', 'a', nil, keystrokeFunction('shift', 'left'), keystrokeFunction
 kana:bind('alt', 's', nil, keystrokeFunction('shift', 'right'), keystrokeFunction('shift', 'right'))
 
 -- Home-Row navigation
-kana:bind('', 'n', nil, keystrokeFunction(nil, 'home'), keystrokeFunction(nil, 'home'))
+kana:bind('', 'n', nil, keystrokeFunction('cmd', 'left'), keystrokeFunction('cmd', 'left'))
 kana:bind('', 'e', nil, keystrokeFunction('alt', 'left'), keystrokeFunction('alt', 'left'))
 kana:bind('', 'i', nil, keystrokeFunction('alt', 'right'), keystrokeFunction('alt', 'right'))
-kana:bind('', 'o', nil, keystrokeFunction(nil, 'end'), keystrokeFunction(nil, 'end'))
+kana:bind('', 'o', nil, keystrokeFunction('cmd', 'right'), keystrokeFunction('cmd', 'right'))
 
 -- Home-Row selection
-kana:bind('alt', 'n', nil, keystrokeFunction('shift', 'home'), keystrokeFunction('shift', 'home'))
+kana:bind('alt', 'n', nil, keystrokeFunction({'cmd', 'shift'}, 'left'), keystrokeFunction({'cmd', 'shift'}, 'left'))
 kana:bind('alt', 'e', nil, keystrokeFunction({'alt', 'shift'}, 'left'), keystrokeFunction({'alt', 'shift'}, 'left'))
 kana:bind('alt', 'i', nil, keystrokeFunction({'alt', 'shift'}, 'right'), keystrokeFunction({'alt', 'shift'}, 'right'))
-kana:bind('alt', 'o', nil, keystrokeFunction('shift', 'end'), keystrokeFunction('shift', 'end'))
+kana:bind('alt', 'o', nil, keystrokeFunction({'cmd', 'shift'}, 'right'), keystrokeFunction({'cmd', 'shift'}, 'right'))
 
 -- Caps-Lock+Space == Delete previous word (alt+delete (backspace))
 kana:bind('', 'space', nil, keystrokeFunction('alt', 'delete'), keystrokeFunction('alt', 'delete'))
