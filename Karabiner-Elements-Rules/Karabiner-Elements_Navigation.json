@@ -397,7 +397,7 @@
     },
 
     {
-      "description": "CAPS LOCK + U/M => PG UP/DN",
+      "description": "CAPS LOCK + LK PG UP/DN",
       "manipulators": [
         {
           "type": "basic",
